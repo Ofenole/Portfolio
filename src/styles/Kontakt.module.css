@@ -1,0 +1,25 @@
+input {
+  background-color: aliceblue;
+  margin-right: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+   &&:hover{
+    background-color: beige;
+  } 
+}
+textarea {
+  background-color: rgb(247, 250, 250);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  
+
+}
+label {
+  color: chartreuse;
+}
+button:hover {
+  color: chartreuse;
+  cursor: pointer;
+
+}
