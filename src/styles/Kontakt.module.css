@@ -3,23 +3,43 @@ input {
   margin-right: 20px;
   cursor: pointer;
   border-radius: 10px;
-   &&:hover{
-    background-color: beige;
-  } 
+  padding: 5px;
+  margin: 10px;
+}
+input:hover {
+  background-color: beige;
 }
 textarea {
-  background-color: rgb(247, 250, 250);
+  display: block;
+color: rgb(37, 41, 32);
   border-radius: 8px;
   font-size: 15px;
   font-weight: bold;
-  
+  margin: 20px auto;
+  width: 500px;
 
-}
+}  
+
 label {
   color: chartreuse;
 }
-button:hover {
-  color: chartreuse;
-  cursor: pointer;
-
+button {
+  height: 35px;
+  width: 100px;
+  border-radius: 8px;
+  
 }
+button:hover {
+  color: rgb(117, 182, 52);
+  cursor: pointer;
+  font-size: 20px;
+  height: 45px;
+  width: 120px;
+}
+p{
+  font-size: 20px;
+}
+
+
+
+

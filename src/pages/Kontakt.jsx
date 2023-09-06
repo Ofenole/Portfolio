@@ -1,74 +1,87 @@
-import Styles from"../styles/kontakt.module.css";
-import emailjs from 'emailjs-com'
+import "../styles/kontakt.module.css"; 
+import emailjs from "emailjs-com";
 
-/* eslint-disable no-undef */
+import { Form, Input, TextArea, Button } from "semantic-ui-react";
 
+import Swal from "sweetalert2";
+const SERVICE_ID = "service_vo1qtyh";
+const TEMPLATE_ID = "template_fp825jo";
+const PUBLIC_KEY = "JZEPuKH4twEJmHI5P";
 const Kontakt = () => {
-  // ...
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then(
+      (result) => {
+        console.log(result.text);
+        Swal.fire({
+          icon: "success",
+          title: "Nachricht erfolgreich gesendet",
+        });
+      },
+      (error) => {
+        console.log(error.text);
+        Swal.fire({
+          icon: "error",
+          title: "Ups, da ist ein Fehler aufgetreten",
+          text: error.text,
+        });
+      }
+    );
+    e.target.reset();
+  }
+  return (
+    <div>
+      <div className="box1">
+        <h2>Olaf Dutschmann</h2>
+        <p>Bauhofstr. 1</p>
+        <p>03130 Spremberg</p>
+        <p>Tel. 0152/34616878</p>
+      </div>
+      <div className="box2">
+        <Form onSubmit={handleOnSubmit}>
+          <Form.Field
+            id="form-input-control-last-name"
+            control={Input}
+            label="Name"
+            name="from_name"
+            placeholder="Name…"
+            required
+            icon="Benutzername"
+            iconPosition="left"
+          />
+          <Form.Field
+            id="form-input-control-email"
+            control={Input}
+            label="Email"
+            name="user_email"
+            placeholder="Email…"
+            required
+            icon="mail"
+            iconPosition="left"
+          />
+          <Form.Field
+          
+            id="form-textarea-control-opinion"
+            control={TextArea}
+            label="Message"
+            name="user_message"
+            placeholder="Nachricht..."
+            required
+          />
+          <Button type="submit" color="green ">
+            Abschicken
+          </Button>
+        </Form>
+      </div>
+    </div>
+  );
+};
+export default Kontakt;
 
-  // Diese Funktion wird aufgerufen, wenn das Formular abgeschickt wird
-  const handleSubmit = (event) => {
-    // Verhindern Sie das Neuladen der Seite
-    event.preventDefault();
-
-    // Senden Sie die Formulardaten an EmailJS
-    emailjs
-      .sendForm(
+/*
         "service_vo1qtyh",
         "template_fp825jo",
         event.target,
         "JZEPuKH4twEJmHI5P"
-      )
-      .then(
-        (result) => {
-          console.log("E-Mail erfolgreich gesendet!", result.text);
-          alert ("E-Mail erfolgreich gesendet!")
-        },
-        (error) => {
-          console.log("E-Mail-Fehler...", error.text);
-          alert("du bist zu doof zum schreiben  ")
-        }
-      );
-  };
-  /* Erstellen Sie ein EmailJS-Konto und verbinden Sie Ihren gewünschten E-Mail-Service.
-     Erstellen Sie eine E-Mail-Vorlage mit dem integrierten Editor.
-     Installieren Sie die EmailJS-Bibliothek in Ihrem React-Projekt mit npm install emailjs-com.
-     Importieren Sie die Bibliothek in Ihrer Kontakt-Komponente mit import emailjs from 'emailjs-com'. */
-
-  return (
-    <>
     
-    <div className={Styles.container}>
-      <h2 style={{ color: "white" }}>Olaf Dutschmann</h2>
-      <p>Bauhofstraße 1</p>
-      <p>03130 Spremberg / Germany</p>
-      <p>0162/7764823</p>
-      <p>E-mail: Olaf_Dutschmann@gmx.de </p>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-        <br />
-        <label>
-          E-Mail:
-          <input type="email" name="email" />
-        </label>
-        <br />
-        <br />
-        <label>
-          Nachricht:
-          <div>
-            <textarea name="message" rows="5" cols="50"></textarea>
-          </div>
-        </label>
-        <br />
-        <br />
-        <button type="submit">Absenden</button>
-      </form>
-      </div>
-    </>
-  );
-};
-
-export default Kontakt;
+ */

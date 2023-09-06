@@ -1,7 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* max-width: 1280px; */
+  /*  margin: 0 auto; */
+  /* padding: 2rem; */
   text-align: center;
 }
 img {
@@ -14,8 +14,10 @@ img {
 body {
   background-image: url(/src/assets/backgrount.jpg);
   background-size: cover;
+  background-attachment: fixed;
   background-blend-mode: multiply;
-  background-color: rgba(4, 4, 4, 0.737);
+  background-color: rgba(57, 58, 77, 0.737);
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -34,41 +36,180 @@ p {
   color: white;
   font-size: 25px;
   margin-left: 15px;
-  &&:hover {
-    color: rgba(247, 56, 56, 0.968);
-    animation: fa-spin 2s infinite linear;
+}
+.my-icon:hover {
+  color: rgba(247, 56, 56, 0.968);
+  animation: fa-spin 2s infinite linear;
+}
+
+.text {
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.text1 {
+  border: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-top: -10px;
+  cursor: pointer;
+}
+.text1:hover {
+  color: red;
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 390px) {
+  header {
+    height: 400px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(5, auto);
+  }
+  .side {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .side1 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .side2 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  .side3 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+  .side4 {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+  .side5 {
+    grid-column: 1/2;
+    grid-row: 6/7;
+  }
+  h1 {
+    font-size: 25px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  .icons img {
+    position: fixed;
+    bottom: 0;
   }
 }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(5, 30%);
-  grid-template-rows: repeat(3, 33%);
+
+@media only screen and (min-width: 391px) {
+  h1 {
+    font-size: 30px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 15px;
+  }
+  header {
+    height: 250px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+  }
+  .side {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .side1 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .side2 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  .side3 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .side4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .side5 {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+  
 }
-header {
-  height: 450px;
-  width: 50vw;
+
+@media only screen and (min-width: 992px) {
+  h1 {
+    text-shadow: 2px 2px 4px gray;
+    font-family: "old English Text MT", serif;
+    color: white;
+    letter-spacing: 5px;
+  }
+
+  header {
+    height: 250px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .side {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .side1 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .side2 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  .side3 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .side4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .side5 {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
 }
-.side {
-  grid-column: 1/2;
-  grid-row: 1/2;
+.icons {
+  display: flex;
+  background-color: rgba(128, 128, 128, 0.607);
+  position: fixed;
+  bottom: 5rem;
+  right: 45%;
+  border-radius: 10px;
+ 
 }
-.side1 {
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-.side2 {
-  grid-column: 1/2;
-  grid-row: 3/4;
-}
-.side3 {
-  grid-column: 2/3;
-  grid-row: 1/2;
-}
-.side4 {
-  grid-column: 2/3;
-  grid-row: 2/3;
-}
-.side5 {
-  grid-column: 3/4;
-  grid-row: 1/2;
+.icons img {
+  width: 30px;
+  height: 30px;
 }
